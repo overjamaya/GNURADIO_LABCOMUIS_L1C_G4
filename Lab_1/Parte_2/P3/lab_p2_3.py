@@ -7,9 +7,9 @@
 # GNU Radio Python Flow Graph
 # Title: lab_p2_3
 # Author: Over_amaya_angie_chaparro_L1C_G4
-# GNU Radio version: 3.10.1.1
+# GNU Radio version: 3.9.5.0
 
-from packaging.version import Version as StrictVersion
+from distutils.version import StrictVersion
 
 if __name__ == '__main__':
     import ctypes
@@ -78,16 +78,16 @@ class lab_p2_3(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 20000
+        self.samp_rate = samp_rate = 88200
         self.fc = fc = 1500
         self.f_corte = f_corte = 1500
-        self.audio_rate = audio_rate = 48000
+        self.audio_rate = audio_rate = 44100
         self.BW = BW = 1500
 
         ##################################################
         # Blocks
         ##################################################
-        self._samp_rate_range = Range(1000, 300000, 1000, 20000, 200)
+        self._samp_rate_range = Range(1000, 300000, 1000, 88200, 200)
         self._samp_rate_win = RangeWidget(self._samp_rate_range, self.set_samp_rate, "'samp_rate'", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._samp_rate_win)
         self._fc_range = Range(100, 21000, 10, 1500, 200)
@@ -152,7 +152,7 @@ class lab_p2_3(gr.top_block, Qt.QWidget):
         self._f_corte_range = Range(100, 21000, 10, 1500, 200)
         self._f_corte_win = RangeWidget(self._f_corte_range, self.set_f_corte, "frecuencia de corte", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._f_corte_win)
-        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/overj/Descargas/Audios de prueba-20221020T201536Z-001/Audios de prueba/Audio_de_prueba.wav', True)
+        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/labcom/Descargas/Audios de prueba-20221024T143903Z-001/Audios de prueba/session52_quevedobzrp.wav', True)
         self.band_pass_filter_0 = filter.interp_fir_filter_fff(
             1,
             firdes.band_pass(
@@ -163,7 +163,7 @@ class lab_p2_3(gr.top_block, Qt.QWidget):
                 100,
                 window.WIN_HAMMING,
                 6.76))
-        self.audio_sink_0 = audio.sink(samp_rate, '', True)
+        self.audio_sink_0 = audio.sink(audio_rate, '', True)
 
 
         ##################################################

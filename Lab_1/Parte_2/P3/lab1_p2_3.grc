@@ -58,7 +58,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '48000'
+    value: '44100'
   states:
     bus_sink: false
     bus_source: false
@@ -120,7 +120,7 @@ blocks:
     start: '1000'
     step: '1000'
     stop: '300000'
-    value: '20000'
+    value: '88200'
     widget: counter_slider
   states:
     bus_sink: false
@@ -138,7 +138,7 @@ blocks:
     device_name: ''
     num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: samp_rate
+    samp_rate: audio_rate
   states:
     bus_sink: false
     bus_source: false
@@ -168,16 +168,16 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 204.0]
+    coordinate: [488, 196.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: blocks_wavfile_source_0
   id: blocks_wavfile_source
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    file: /home/overj/Descargas/Audios de prueba-20221020T201536Z-001/Audios de prueba/Audio_de_prueba.wav
+    file: /home/labcom/Descargas/Audios de prueba-20221024T143903Z-001/Audios de prueba/session52_quevedobzrp.wav
     maxoutbuf: '0'
     minoutbuf: '0'
     nchan: '1'
@@ -186,9 +186,57 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [56, 252.0]
+    coordinate: [48, 252.0]
     rotation: 0
     state: true
+- name: high_pass_filter_0
+  id: high_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: ''
+    cutoff_freq: f_corte
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: interp_fir_filter_fff
+    width: '100'
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [280, 652.0]
+    rotation: 0
+    state: disabled
+- name: low_pass_filter_0
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: ''
+    cutoff_freq: f_corte
+    decim: '1'
+    gain: '1'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: interp_fir_filter_fff
+    width: '100'
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [888, 620.0]
+    rotation: 0
+    state: disabled
 - name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
@@ -267,7 +315,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 436.0]
+    coordinate: [600, 452.0]
     rotation: 0
     state: true
 - name: rational_resampler_xxx_0
@@ -307,7 +355,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [800, 220.0]
+    coordinate: [792, 220.0]
     rotation: 0
     state: true
 
