@@ -168,16 +168,16 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [488, 196.0]
+    coordinate: [312, 428.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: blocks_wavfile_source_0
   id: blocks_wavfile_source
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    file: /home/labcom/Descargas/Audios de prueba-20221024T143903Z-001/Audios de prueba/session52_quevedobzrp.wav
+    file: /home/overj/Descargas/Audios de prueba-20221020T201536Z-001/Audios de prueba/despecha_rosalia.wav
     maxoutbuf: '0'
     minoutbuf: '0'
     nchan: '1'
@@ -210,9 +210,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 652.0]
+    coordinate: [552, 204.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: low_pass_filter_0
   id: low_pass_filter
   parameters:
@@ -234,7 +234,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [888, 620.0]
+    coordinate: [96, 420.0]
     rotation: 0
     state: disabled
 - name: qtgui_freq_sink_x_0
@@ -360,10 +360,10 @@ blocks:
     state: true
 
 connections:
-- [band_pass_filter_0, '0', qtgui_freq_sink_x_0, '0']
-- [band_pass_filter_0, '0', rational_resampler_xxx_1, '0']
 - [blocks_wavfile_source_0, '0', rational_resampler_xxx_0, '0']
-- [rational_resampler_xxx_0, '0', band_pass_filter_0, '0']
+- [high_pass_filter_0, '0', qtgui_freq_sink_x_0, '0']
+- [high_pass_filter_0, '0', rational_resampler_xxx_1, '0']
+- [rational_resampler_xxx_0, '0', high_pass_filter_0, '0']
 - [rational_resampler_xxx_0, '0', qtgui_freq_sink_x_0, '1']
 - [rational_resampler_xxx_1, '0', audio_sink_0, '0']
 
