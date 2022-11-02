@@ -5,7 +5,7 @@ options:
     category: '[Modulos_L1C04]'
     cmake_opt: ''
     comment: ''
-    copyright: ''
+    copyright: Over_Amaya_Angie_chaparro
     description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
@@ -45,6 +45,22 @@ blocks:
     coordinate: [264, 20.0]
     rotation: 0
     state: enabled
+- name: BloquesJ1C04_SumaVector_0
+  id: BloquesJ1C04_SumaVector
+  parameters:
+    PARAM1: l_vect
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [188.0, 256]
+    rotation: 90
+    state: true
 - name: blocks_complex_to_mag_squared_0
   id: blocks_complex_to_mag_squared
   parameters:
@@ -58,7 +74,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [252.0, 216]
+    coordinate: [404.0, 432]
     rotation: 90
     state: true
 - name: blocks_multiply_const_vxx_0
@@ -76,7 +92,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [392, 132.0]
+    coordinate: [272, 156.0]
     rotation: 0
     state: true
 - name: blocks_nlog10_ff_0
@@ -130,7 +146,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32.0, 264]
+    coordinate: [32.0, 360]
     rotation: 270
     state: true
 - name: fft_vxx_0
@@ -151,7 +167,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [72, 356.0]
+    coordinate: [40, 588.0]
     rotation: 0
     state: true
 - name: l_vect
@@ -188,7 +204,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [28.0, 120]
+    coordinate: [28.0, 184]
     rotation: 270
     state: true
 - name: qtgui_number_sink_0
@@ -382,6 +398,8 @@ blocks:
     state: true
 
 connections:
+- [BloquesJ1C04_SumaVector_0, '0', blocks_multiply_const_vxx_0, '0']
+- [blocks_complex_to_mag_squared_0, '0', BloquesJ1C04_SumaVector_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_nlog10_ff_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_nlog10_ff_1, '0']
 - [blocks_multiply_const_vxx_0, '0', qtgui_number_sink_1, '0']
