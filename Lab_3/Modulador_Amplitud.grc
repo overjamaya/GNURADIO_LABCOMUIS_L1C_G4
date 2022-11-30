@@ -1,6 +1,6 @@
 options:
   parameters:
-    author: Over_Amaya_Angie_Chaparro
+    author: Over_Amaya_Angie_chaparro
     catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: Modulador_de_amplitud_L1c04
+    id: ModulacionAM
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -28,7 +28,7 @@ options:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 20.0]
+    coordinate: [8, 8]
     rotation: 0
     state: enabled
 
@@ -43,15 +43,15 @@ blocks:
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
-    step: '0.001'
+    step: 1e-3
     stop: '1'
-    value: '0.125'
+    value: 125e-3
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [408, 220.0]
+    coordinate: [1064, 36.0]
     rotation: 0
     state: true
 - name: Am
@@ -59,12 +59,12 @@ blocks:
   parameters:
     comment: ''
     gui_hint: ''
-    label: Amplitud del mensaje
+    label: Amplitud mensaje
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
-    step: '0.1'
+    step: 100e-3
     stop: '4'
     value: '1'
     widget: counter_slider
@@ -72,7 +72,28 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [408, 20.0]
+    coordinate: [424, 44.0]
+    rotation: 0
+    state: true
+- name: B
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: Cambio de banda
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: '-1'
+    step: '2'
+    stop: '1'
+    value: '1'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [864, 188.0]
     rotation: 0
     state: true
 - name: GTX
@@ -80,7 +101,7 @@ blocks:
   parameters:
     comment: ''
     gui_hint: ''
-    label: Ganancia del transmisor
+    label: Ganancia de transmisor
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
@@ -93,28 +114,49 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 212.0]
+    coordinate: [648, 188.0]
     rotation: 0
     state: true
-- name: Ka
+- name: K
   id: variable_qtgui_range
   parameters:
     comment: ''
     gui_hint: ''
-    label: Coeficiente de sensibilidad ka
+    label: A1
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
-    step: '0.1'
-    stop: '4'
+    step: '1'
+    stop: '1'
     value: '1'
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [632, 212.0]
+    coordinate: [424, 180.0]
+    rotation: 0
+    state: true
+- name: Offset
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: Offset
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: '-1'
+    step: '0.1'
+    stop: '1'
+    value: '0'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 188.0]
     rotation: 0
     state: true
 - name: fc
@@ -122,7 +164,7 @@ blocks:
   parameters:
     comment: ''
     gui_hint: ''
-    label: Frecuencia portadora
+    label: Frecuencia de portadora
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
@@ -135,7 +177,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 20.0]
+    coordinate: [872, 28.0]
     rotation: 0
     state: true
 - name: fm
@@ -143,39 +185,55 @@ blocks:
   parameters:
     comment: ''
     gui_hint: ''
-    label: Frecuencia del mensaje
+    label: Frecuencia de mensaje
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '300'
     step: '100'
-    stop: '21000'
-    value: '1000'
+    stop: 21e3
+    value: 1e3
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [624, 20.0]
+    coordinate: [656, 36.0]
     rotation: 0
     state: true
 - name: samp_rate
   id: variable
   parameters:
     comment: ''
-    value: 12500000/64
+    value: 195.312e3
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 20.0]
+    coordinate: [216, 28.0]
     rotation: 0
     state: enabled
-- name: EnvolventeComplejaDSB_0
-  id: EnvolventeComplejaDSB
+- name: CalculoDePotenciaComunicaciones_0
+  id: CalculoDePotenciaComunicaciones
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    gui_hint: ''
+    l_vect: '1024'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1064, 348.0]
+    rotation: 0
+    state: true
+- name: SSB_0
+  id: SSB
   parameters:
     Ac: Ac
-    Ka: Ka
+    B: B
+    K: K
     affinity: ''
     alias: ''
     comment: ''
@@ -185,7 +243,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [432, 500.0]
+    coordinate: [440, 492.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_0
@@ -198,7 +256,7 @@ blocks:
     freq: fm
     maxoutbuf: '0'
     minoutbuf: '0'
-    offset: '0'
+    offset: Offset
     phase: '0'
     samp_rate: samp_rate
     type: float
@@ -207,7 +265,201 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 468.0]
+    coordinate: [104, 468.0]
+    rotation: 0
+    state: true
+- name: blocks_complex_to_float_0
+  id: blocks_complex_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [856, 352.0]
+    rotation: 0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: ''
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    norm_window: 'False'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: window.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [984, 660.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [976, 572.0]
     rotation: 0
     state: true
 - name: uhd_usrp_sink_0
@@ -484,13 +736,17 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [920, 460.0]
+    coordinate: [976, 460.0]
     rotation: 0
     state: true
 
 connections:
-- [EnvolventeComplejaDSB_0, '0', uhd_usrp_sink_0, '0']
-- [analog_sig_source_x_0, '0', EnvolventeComplejaDSB_0, '0']
+- [SSB_0, '0', blocks_complex_to_float_0, '0']
+- [SSB_0, '0', qtgui_freq_sink_x_0, '0']
+- [SSB_0, '0', qtgui_time_sink_x_0, '0']
+- [SSB_0, '0', uhd_usrp_sink_0, '0']
+- [analog_sig_source_x_0, '0', SSB_0, '0']
+- [blocks_complex_to_float_0, '0', CalculoDePotenciaComunicaciones_0, '0']
 
 metadata:
   file_format: 1
