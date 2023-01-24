@@ -18,3 +18,7 @@ LAB comunicaciones l - 2022-2
    
 #### Lab_4: 
    - Modulación FM
+   - Demodulación FM
+   
+#### Lab_5:
+   - Modulacion digital PAM
