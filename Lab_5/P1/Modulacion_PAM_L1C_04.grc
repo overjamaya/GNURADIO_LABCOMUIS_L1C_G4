@@ -108,7 +108,7 @@ blocks:
     start: '0'
     step: '1'
     stop: '10000'
-    value: '1000'
+    value: '2000'
     widget: counter_slider
   states:
     bus_sink: false
@@ -121,7 +121,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '100000'
+    value: '200000'
   states:
     bus_sink: false
     bus_source: false
@@ -161,7 +161,7 @@ blocks:
     phase: '0'
     samp_rate: samp_rate
     type: float
-    waveform: analog.GR_COS_WAVE
+    waveform: analog.GR_SQR_WAVE
   states:
     bus_sink: false
     bus_source: false
@@ -432,7 +432,7 @@ blocks:
     bw7: '0'
     bw8: '0'
     bw9: '0'
-    center_freq0: '0'
+    center_freq0: 50e6
     center_freq1: '0'
     center_freq10: '0'
     center_freq11: '0'
