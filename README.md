@@ -22,3 +22,6 @@ LAB comunicaciones l - 2022-2
    
 #### Lab_5:
    - Modulacion digital PAM
+   - Multiplexación por división de tiempo PAM
+   - Demultiplexacion y demodulacion PAM
+   - Modulacion PWM
